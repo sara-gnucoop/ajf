@@ -48,12 +48,14 @@ import {AjfRangePipe} from './range';
 import {AjfReadOnlyFieldComponent} from './read-only-field';
 import {AjfReadOnlyFileFieldComponent} from './read-only-file-field';
 import {AjfReadOnlyImageFieldComponent} from './read-only-image-field';
+import {AjfReadOnlySelectFieldComponent} from './read-only-select-field';
 import {AjfReadOnlyTableFieldComponent} from './read-only-table-field';
 import {AjfReadOnlyVideoUrlFieldComponent} from './read-only-video-url-field';
 import {AjfTableRowClass} from './table-row-class';
 import {AjfTableVisibleColumnsPipe} from './table-visible-columns';
 import {AjfValidSlidePipe} from './valid-slide';
 import {AjfValidationService} from './validation-service';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,7 @@ import {AjfValidationService} from './validation-service';
     AjfReadOnlyFieldComponent,
     AjfReadOnlyFileFieldComponent,
     AjfReadOnlyImageFieldComponent,
+    AjfReadOnlySelectFieldComponent,
     AjfReadOnlyTableFieldComponent,
     AjfReadOnlyVideoUrlFieldComponent,
     AjfTableRowClass,
@@ -89,6 +92,7 @@ import {AjfValidationService} from './validation-service';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    TranslateModule
   ],
   exports: [
     AjfAsFieldInstancePipe,
@@ -111,6 +115,7 @@ import {AjfValidationService} from './validation-service';
     AjfReadOnlyFieldComponent,
     AjfReadOnlyFileFieldComponent,
     AjfReadOnlyImageFieldComponent,
+    AjfReadOnlySelectFieldComponent,
     AjfReadOnlyTableFieldComponent,
     AjfReadOnlyVideoUrlFieldComponent,
     AjfTableRowClass,
