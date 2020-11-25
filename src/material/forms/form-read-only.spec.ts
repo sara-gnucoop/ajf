@@ -20,12 +20,7 @@
  *
  */
 
-import {
-  AjfFieldType,
-  AjfFieldWithChoices,
-  AjfFormSerializer,
-  AjfNodeType
-} from '@ajf/core/forms';
+import {AjfFieldType, AjfFieldWithChoices, AjfFormSerializer, AjfNodeType} from '@ajf/core/forms';
 import {Component} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
@@ -54,11 +49,6 @@ describe('AjfFormRenderer', () => {
 
     fixture.detectChanges();
     await fixture.whenStable();
-
-    fixture.componentInstance.form = AjfFormSerializer.fromJson(testForm, {field: 'blackcat'});
-
-    fixture.detectChanges();
-    await fixture.whenStable();
     fixture.detectChanges();
     await fixture.whenStable();
 
@@ -76,7 +66,7 @@ const testForm = {
       choices: [
         {value: 'dog', label: 'Dog'},
         {value: 'cat', label: 'Cat'},
-        {value: 'blackcat', label: 'Black Cat'}
+        {value: 'blackcat', label: 'Black Cat'},
       ],
     },
   ],
@@ -107,5 +97,5 @@ const testForm = {
   template: '<ajf-form readonly [form]="form"></ajf-form>',
 })
 class TestComponent {
-  form = AjfFormSerializer.fromJson(testForm);
+  form = AjfFormSerializer.fromJson(testForm, {field: 'blackcat'});
 }
