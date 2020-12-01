@@ -2,21 +2,24 @@
 # all in-sync. This map is passed to each ng_package rule to stamp out the appropriate
 # version for the placeholders.
 AJF_ICONS_PACKAGE_VERSION = "^1.0.0"
-ANGULAR_PACKAGE_VERSION = "^11.0.0-0 || ^12.0.0-0"
-ANGULAR_MATERIAL_PACKAGE_VERSION = "^11.0.0-0 || ^12.0.0-0"
+ANGULAR_PACKAGE_VERSION = "^11.0.0 || ^12.0.0-0"
+ANGULAR_MATERIAL_PACKAGE_VERSION = "^11.0.0 || ^12.0.0-0"
 CHARTJS_PACKAGE_VERSION = "^2.9.3"
 CSS_ELEMENT_QUERIES_PACKAGE_VERSION = "^1.2.3"
 DATEFNS_PACKAGE_VERSION = "^2.14.0"
 ESPRIMA_PACKAGE_VERSION = "^4.0.1"
+FILE_SAVER_PACKAGE_VERSION = "^2.0.2"
 FLAG_ICON_CSS_PACKAGE_VERSION = "^3.5.0"
 GIC_PACKAGE_VERSION = "^5.0.0"
 IONIC_PACKAGE_VERSION = "^5.0.0"
 LEAFLET_PACKAGE_VERSION = "^1.6.0"
 NGX_COLOR_PICKER_PACKAGE_VERSION = "^10.0.0"
 NGXT_PACKAGE_VERSION = "^13.0.0"
-QUILL_PACKAGE_VERION = "^1.3.7"
-NUMBRO_PACKAGE_VERION = "^2.3.1"
+NUMBRO_PACKAGE_VERSION = "^2.3.1"
+PDFMAKE_PACKAGE_VERSION = "^0.1.68"
+QUILL_PACKAGE_VERSION = "^1.3.7"
 TSLIB_PACKAGE_VERSION = "^2.0.0"
+XLSX_PACKAGE_VERSION = "^0.16.5"
 ZXING_PACKAGE_VERSION = "^0.17.0"
 
 VERSION_PLACEHOLDER_REPLACEMENTS = {
@@ -29,14 +32,17 @@ VERSION_PLACEHOLDER_REPLACEMENTS = {
     "0.0.0-DATEFNS": DATEFNS_PACKAGE_VERSION,
     "0.0.0-ESPRIMA": ESPRIMA_PACKAGE_VERSION,
     "0.0.0-FIC": FLAG_ICON_CSS_PACKAGE_VERSION,
+    "0.0.0-FILESAVER": FILE_SAVER_PACKAGE_VERSION,
     "0.0.0-GIC": GIC_PACKAGE_VERSION,
     "0.0.0-ION": IONIC_PACKAGE_VERSION,
     "0.0.0-LEAFLET": LEAFLET_PACKAGE_VERSION,
     "0.0.0-NG": ANGULAR_PACKAGE_VERSION,
-    "0.0.0-NUMBRO": NUMBRO_PACKAGE_VERION,
-    "0.0.0-QUILL": QUILL_PACKAGE_VERION,
+    "0.0.0-NUMBRO": NUMBRO_PACKAGE_VERSION,
+    "0.0.0-PDFMAKE": PDFMAKE_PACKAGE_VERSION,
+    "0.0.0-QUILL": QUILL_PACKAGE_VERSION,
     "0.0.0-TSLIB": TSLIB_PACKAGE_VERSION,
     "0.0.0-ZXING": ZXING_PACKAGE_VERSION,
+    "0.0.0-XLSX": XLSX_PACKAGE_VERSION,
 }
 
 # List of default Angular library UMD bundles which are not processed by ngcc.
@@ -79,9 +85,12 @@ THIRD_PARTY_GEN_BUNDLES = [
     ("css-element-queries", "css-element-queries-bundle.js"),
     ("date-fns", "date-fns-bundle.js"),
     ("esprima", "esprima-bundle.js"),
+    ("file-saver", "file-saver-bundle.js"),
     ("leaflet", "leaflet-bundle.js"),
     ("numbro", "numbro-bundle.js"),
+    ("pdfmake/build/pdfmake", "pdfmake-bundle.js"),
     ("quill", "quill-bundle.js"),
+    ("xlsx", "xlsx-bundle.js"),
 ]
 
 """

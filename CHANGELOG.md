@@ -1,3 +1,39 @@
+## 11.0.2 "shy-term" (2020-11-30)
+
+### ajf
+
+|            |                       |
+| ---------- | --------------------- |
+| bug fix |  **forms:** formula fields must be readonly inputs ([93c2819c8231e990e3b1f3a30dc20275aa2a2408](https://github.com/gnucoop/ajf/commit/93c2819c8231e990e3b1f3a30dc20275aa2a2408)) |
+
+
+## 11.0.1 "delicate-queen" (2020-11-30)
+
+### core
+
+|            |                       |
+| ---------- | --------------------- |
+| bug fix |  **forms:** show labels for select fields when readonly ([ddac4e635f319ccf9a9c973769e39976d900bc9c](https://github.com/gnucoop/ajf/commit/ddac4e635f319ccf9a9c973769e39976d900bc9c)) |
+
+### ajf
+
+|            |                       |
+| ---------- | --------------------- |
+| bug fix |  approve api change in core/chart and core/reports ([c2a01b9e8b97ef2a011a135f8c3eb838ef35006f](https://github.com/gnucoop/ajf/commit/c2a01b9e8b97ef2a011a135f8c3eb838ef35006f)) |
+| feature |  report-to-pdf ([2d15b6a4df5e5e837aa42363ce3cc0772b1f870b](https://github.com/gnucoop/ajf/commit/2d15b6a4df5e5e837aa42363ce3cc0772b1f870b)) |
+
+
+# 11.0.0 "divine-cell" (2020-11-20)
+
+### ajf
+
+|            |                       |
+| ---------- | --------------------- |
+| bug fix |  approve api changes in core forms ([9c23817c4b56829402b06802fe31a718d8cec110](https://github.com/gnucoop/ajf/commit/9c23817c4b56829402b06802fe31a718d8cec110)) |
+| bug fix |  lint errors ([2380a0a69dc7855a05b6fe51b424e34e287be657](https://github.com/gnucoop/ajf/commit/2380a0a69dc7855a05b6fe51b424e34e287be657)) |
+| feature |  add support for TypeScript 4.0 ([173aec1fcc197c5bdfd28a0aba00d79b583eb8ba](https://github.com/gnucoop/ajf/commit/173aec1fcc197c5bdfd28a0aba00d79b583eb8ba)) |
+
+
 ## 10.0.6 "misty-cherry" (2020-10-21)
 
 ### ionic

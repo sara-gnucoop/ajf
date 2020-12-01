@@ -26,6 +26,7 @@ import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
+import {TranslateModule} from '@ngx-translate/core';
 
 import {AjfAsFieldInstancePipe} from './as-field-instance';
 import {AjfAsRepeatingSlideInstancePipe} from './as-repeating-slide-instance';
@@ -42,12 +43,14 @@ import {AjfGetTableCellControlPipe} from './get-table-cell-control';
 import {AjfImageFieldComponent} from './image-field';
 import {AjfIncrementPipe} from './increment';
 import {AjfIsCellEditablePipe} from './is-cell-editable';
+import {AjfIsReadonlyInputFieldPipe} from './is-readonly-input-field';
 import {AjfIsRepeatingSlideInstancePipe} from './is-repeating-slide';
 import {AjfNodeCompleteNamePipe} from './node-complete-name';
 import {AjfRangePipe} from './range';
 import {AjfReadOnlyFieldComponent} from './read-only-field';
 import {AjfReadOnlyFileFieldComponent} from './read-only-file-field';
 import {AjfReadOnlyImageFieldComponent} from './read-only-image-field';
+import {AjfReadOnlySelectFieldComponent} from './read-only-select-field';
 import {AjfReadOnlyTableFieldComponent} from './read-only-table-field';
 import {AjfReadOnlyVideoUrlFieldComponent} from './read-only-video-url-field';
 import {AjfTableRowClass} from './table-row-class';
@@ -71,12 +74,14 @@ import {AjfValidationService} from './validation-service';
     AjfImageFieldComponent,
     AjfIncrementPipe,
     AjfIsCellEditablePipe,
+    AjfIsReadonlyInputFieldPipe,
     AjfIsRepeatingSlideInstancePipe,
     AjfNodeCompleteNamePipe,
     AjfRangePipe,
     AjfReadOnlyFieldComponent,
     AjfReadOnlyFileFieldComponent,
     AjfReadOnlyImageFieldComponent,
+    AjfReadOnlySelectFieldComponent,
     AjfReadOnlyTableFieldComponent,
     AjfReadOnlyVideoUrlFieldComponent,
     AjfTableRowClass,
@@ -84,11 +89,8 @@ import {AjfValidationService} from './validation-service';
     AjfValidSlidePipe,
   ],
   imports: [
-    AjfCommonModule,
-    AjfFileInputModule,
-    CommonModule,
-    HttpClientModule,
-    ReactiveFormsModule,
+    AjfCommonModule, AjfFileInputModule, CommonModule, HttpClientModule, ReactiveFormsModule,
+    TranslateModule
   ],
   exports: [
     AjfAsFieldInstancePipe,
@@ -105,17 +107,29 @@ import {AjfValidationService} from './validation-service';
     AjfImageFieldComponent,
     AjfIncrementPipe,
     AjfIsCellEditablePipe,
+    AjfIsReadonlyInputFieldPipe,
     AjfIsRepeatingSlideInstancePipe,
     AjfNodeCompleteNamePipe,
     AjfRangePipe,
     AjfReadOnlyFieldComponent,
     AjfReadOnlyFileFieldComponent,
     AjfReadOnlyImageFieldComponent,
+    AjfReadOnlySelectFieldComponent,
     AjfReadOnlyTableFieldComponent,
     AjfReadOnlyVideoUrlFieldComponent,
     AjfTableRowClass,
     AjfTableVisibleColumnsPipe,
     AjfValidSlidePipe,
+  ],
+  entryComponents: [
+    AjfFileFieldComponent,
+    AjfImageFieldComponent,
+    AjfReadOnlyFieldComponent,
+    AjfReadOnlyFileFieldComponent,
+    AjfReadOnlyImageFieldComponent,
+    AjfReadOnlySelectFieldComponent,
+    AjfReadOnlyTableFieldComponent,
+    AjfReadOnlyVideoUrlFieldComponent,
   ],
   providers: [
     AjfDateValueStringPipe,

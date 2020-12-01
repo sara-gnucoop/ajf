@@ -73,6 +73,7 @@ export * from './serializers/report-serializer';
 export * from './serializers/widget-serializer';
 export * from './widget';
 export * from './interface/widgets/widget-components-map';
+export * from './widget-export';
 export * from './widget-host';
 export * from './widget-service';
 
@@ -81,3 +82,5 @@ export * from './utils/reports-instances/create-report-instance';
 export * from './utils/widgets/create-widget';
 export * from './utils/widgets-instances/create-widget-instance';
 export * from './utils/widgets-instances/widget-to-widget-instance';
+
+export * from './report-to-pdf/report-to-pdf';

@@ -441,7 +441,7 @@ export declare class AjfFormSerializer {
 
 export declare class AjfFormsModule {
     static ɵinj: i0.ɵɵInjectorDef<AjfFormsModule>;
-    static ɵmod: i0.ɵɵNgModuleDefWithMeta<AjfFormsModule, [typeof i1.AjfAsFieldInstancePipe, typeof i2.AjfAsRepeatingSlideInstancePipe, typeof i3.AjfBoolToIntPipe, typeof i4.AjfDateValuePipe, typeof i5.AjfDateValueStringPipe, typeof i6.AjfExpandFieldWithChoicesPipe, typeof i7.AjfFieldHost, typeof i8.AjfFieldIconPipe, typeof i9.AjfFieldIsValidPipe, typeof i10.AjfFileFieldComponent, typeof i11.AjfGetTableCellControlPipe, typeof i12.AjfImageFieldComponent, typeof i13.AjfIncrementPipe, typeof i14.AjfIsCellEditablePipe, typeof i15.AjfIsRepeatingSlideInstancePipe, typeof i16.AjfNodeCompleteNamePipe, typeof i17.AjfRangePipe, typeof i18.AjfReadOnlyFieldComponent, typeof i19.AjfReadOnlyFileFieldComponent, typeof i20.AjfReadOnlyImageFieldComponent, typeof i21.AjfReadOnlyTableFieldComponent, typeof i22.AjfReadOnlyVideoUrlFieldComponent, typeof i23.AjfTableRowClass, typeof i24.AjfTableVisibleColumnsPipe, typeof i25.AjfValidSlidePipe], [typeof i26.AjfCommonModule, typeof i27.AjfFileInputModule, typeof i28.CommonModule, typeof i29.HttpClientModule, typeof i30.ReactiveFormsModule], [typeof i1.AjfAsFieldInstancePipe, typeof i2.AjfAsRepeatingSlideInstancePipe, typeof i3.AjfBoolToIntPipe, typeof i4.AjfDateValuePipe, typeof i5.AjfDateValueStringPipe, typeof i6.AjfExpandFieldWithChoicesPipe, typeof i7.AjfFieldHost, typeof i8.AjfFieldIconPipe, typeof i9.AjfFieldIsValidPipe, typeof i10.AjfFileFieldComponent, typeof i11.AjfGetTableCellControlPipe, typeof i12.AjfImageFieldComponent, typeof i13.AjfIncrementPipe, typeof i14.AjfIsCellEditablePipe, typeof i15.AjfIsRepeatingSlideInstancePipe, typeof i16.AjfNodeCompleteNamePipe, typeof i17.AjfRangePipe, typeof i18.AjfReadOnlyFieldComponent, typeof i19.AjfReadOnlyFileFieldComponent, typeof i20.AjfReadOnlyImageFieldComponent, typeof i21.AjfReadOnlyTableFieldComponent, typeof i22.AjfReadOnlyVideoUrlFieldComponent, typeof i23.AjfTableRowClass, typeof i24.AjfTableVisibleColumnsPipe, typeof i25.AjfValidSlidePipe]>;
+    static ɵmod: i0.ɵɵNgModuleDefWithMeta<AjfFormsModule, [typeof i1.AjfAsFieldInstancePipe, typeof i2.AjfAsRepeatingSlideInstancePipe, typeof i3.AjfBoolToIntPipe, typeof i4.AjfDateValuePipe, typeof i5.AjfDateValueStringPipe, typeof i6.AjfExpandFieldWithChoicesPipe, typeof i7.AjfFieldHost, typeof i8.AjfFieldIconPipe, typeof i9.AjfFieldIsValidPipe, typeof i10.AjfFileFieldComponent, typeof i11.AjfGetTableCellControlPipe, typeof i12.AjfImageFieldComponent, typeof i13.AjfIncrementPipe, typeof i14.AjfIsCellEditablePipe, typeof i15.AjfIsReadonlyInputFieldPipe, typeof i16.AjfIsRepeatingSlideInstancePipe, typeof i17.AjfNodeCompleteNamePipe, typeof i18.AjfRangePipe, typeof i19.AjfReadOnlyFieldComponent, typeof i20.AjfReadOnlyFileFieldComponent, typeof i21.AjfReadOnlyImageFieldComponent, typeof i22.AjfReadOnlySelectFieldComponent, typeof i23.AjfReadOnlyTableFieldComponent, typeof i24.AjfReadOnlyVideoUrlFieldComponent, typeof i25.AjfTableRowClass, typeof i26.AjfTableVisibleColumnsPipe, typeof i27.AjfValidSlidePipe], [typeof i28.AjfCommonModule, typeof i29.AjfFileInputModule, typeof i30.CommonModule, typeof i31.HttpClientModule, typeof i32.ReactiveFormsModule, typeof i33.TranslateModule], [typeof i1.AjfAsFieldInstancePipe, typeof i2.AjfAsRepeatingSlideInstancePipe, typeof i3.AjfBoolToIntPipe, typeof i4.AjfDateValuePipe, typeof i5.AjfDateValueStringPipe, typeof i6.AjfExpandFieldWithChoicesPipe, typeof i7.AjfFieldHost, typeof i8.AjfFieldIconPipe, typeof i9.AjfFieldIsValidPipe, typeof i10.AjfFileFieldComponent, typeof i11.AjfGetTableCellControlPipe, typeof i12.AjfImageFieldComponent, typeof i13.AjfIncrementPipe, typeof i14.AjfIsCellEditablePipe, typeof i15.AjfIsReadonlyInputFieldPipe, typeof i16.AjfIsRepeatingSlideInstancePipe, typeof i17.AjfNodeCompleteNamePipe, typeof i18.AjfRangePipe, typeof i19.AjfReadOnlyFieldComponent, typeof i20.AjfReadOnlyFileFieldComponent, typeof i21.AjfReadOnlyImageFieldComponent, typeof i22.AjfReadOnlySelectFieldComponent, typeof i23.AjfReadOnlyTableFieldComponent, typeof i24.AjfReadOnlyVideoUrlFieldComponent, typeof i25.AjfTableRowClass, typeof i26.AjfTableVisibleColumnsPipe, typeof i27.AjfValidSlidePipe]>;
 }
 
 export interface AjfFormStringIdentifier {
@@ -490,6 +490,12 @@ export declare class AjfIsCellEditablePipe implements PipeTransform {
     transform(cell: string | AjfTableCell): boolean;
     static ɵfac: i0.ɵɵFactoryDef<AjfIsCellEditablePipe, never>;
     static ɵpipe: i0.ɵɵPipeDefWithMeta<AjfIsCellEditablePipe, "ajfIsCellEditable">;
+}
+
+export declare class AjfIsReadonlyInputFieldPipe implements PipeTransform {
+    transform(instance: AjfNodeInstance): boolean;
+    static ɵfac: i0.ɵɵFactoryDef<AjfIsReadonlyInputFieldPipe, never>;
+    static ɵpipe: i0.ɵɵPipeDefWithMeta<AjfIsReadonlyInputFieldPipe, "ajfIsReadonlyInputField">;
 }
 
 export declare class AjfIsRepeatingSlideInstancePipe implements PipeTransform {
@@ -592,6 +598,13 @@ export declare class AjfReadOnlyImageFieldComponent extends AjfBaseFieldComponen
     constructor(cdr: ChangeDetectorRef, service: AjfFormRendererService, was: AjfWarningAlertService, domSanitizer: DomSanitizer);
     static ɵcmp: i0.ɵɵComponentDefWithMeta<AjfReadOnlyImageFieldComponent, "ajf-read-only-image-field", never, {}, {}, never, never>;
     static ɵfac: i0.ɵɵFactoryDef<AjfReadOnlyImageFieldComponent, never>;
+}
+
+export declare class AjfReadOnlySelectFieldComponent extends AjfBaseFieldComponent<AjfFieldWithChoicesInstance<String | number>> {
+    readonly multiple: Observable<boolean>;
+    constructor(cdr: ChangeDetectorRef, service: AjfFormRendererService, was: AjfWarningAlertService);
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<AjfReadOnlySelectFieldComponent, "ng-component", never, {}, {}, never, never>;
+    static ɵfac: i0.ɵɵFactoryDef<AjfReadOnlySelectFieldComponent, never>;
 }
 
 export declare class AjfReadOnlyTableFieldComponent extends AjfBaseFieldComponent<AjfTableFieldInstance> {

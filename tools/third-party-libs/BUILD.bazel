@@ -46,6 +46,15 @@ third_party_bundle(
 )
 
 third_party_bundle(
+    name = "file-saver",
+    entry_point = "@npm//:node_modules/file-saver/src/FileSaver.js",
+    module_name = "file-saver",
+    deps = [
+        "@npm//file-saver",
+    ],
+)
+
+third_party_bundle(
     name = "gic-core",
     entry_point = "@npm//:node_modules/@gic/core/dist/index.js",
     globals = {
@@ -113,6 +122,16 @@ third_party_bundle(
 )
 
 third_party_bundle(
+    name = "pdfmake",
+    entry_point = "@npm//:node_modules/pdfmake/build/pdfmake.js",
+    module_name = "pdfmake/build/pdfmake",
+    exports = "default",
+    deps = [
+        "@npm//pdfmake",
+    ],
+)
+
+third_party_bundle(
     name = "quill",
     entry_point = "@npm//:node_modules/quill/dist/quill.js",
     module_name = "quill",
@@ -132,5 +151,14 @@ third_party_bundle(
     deps = [
         "@npm//@zxing",
         "@npm//ts-custom-error",
+    ],
+)
+
+third_party_bundle(
+    name = "xlsx",
+    entry_point = "@npm//:node_modules/xlsx/xlsx.js",
+    module_name = "xlsx",
+    deps = [
+        "@npm//xlsx",
     ],
 )
