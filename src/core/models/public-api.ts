@@ -20,9 +20,9 @@
  *
  */
 
+export * from './context';
 export * from './error';
 export * from './interface/condition';
-export * from './interface/context';
 export * from './interface/formula';
 export * from './interface/validation-function';
 export * from './serializers/condition-serializer';

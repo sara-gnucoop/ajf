@@ -20,18 +20,15 @@
  *
  */
 
-import {AjfForm} from '@ajf/core/forms';
-import {AjfStyles} from '../styles';
-import {AjfReportContainer} from './report-container';
-import {AjfReportStringIdentifier} from './report-string-identifier';
-import {AjfReportVariable} from './report-variable';
+import {AjfContext, BuildStringIdentifierOpts} from '@ajf/core/common';
+import {Pipe, PipeTransform} from '@angular/core';
 
-export interface AjfReport {
-  header?: AjfReportContainer;
-  content?: AjfReportContainer;
-  footer?: AjfReportContainer;
-  styles?: AjfStyles;
-  forms?: AjfForm[];
-  variables?: AjfReportVariable[];
-  stringIdentifier?: AjfReportStringIdentifier[];
+import {AjfForm} from './interface/forms/form';
+import {buildFormStringIdentifier} from './utils/forms/build-form-string-identifier';
+
+@Pipe({name: 'ajfFormStringIdentifier'})
+export class AjfFormStringIdentifierPipe implements PipeTransform {
+  transform(form: AjfForm, context: AjfContext, opts?: BuildStringIdentifierOpts): string {
+    return buildFormStringIdentifier(form, context, opts);
+  }
 }

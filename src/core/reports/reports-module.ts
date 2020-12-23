@@ -24,18 +24,23 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 
 import {AjfGetColumnContentPipe} from './get-column-content';
+import {AjfReportStringIdentifierPipe} from './report-string-identifier';
 import {AjfWidgetExport} from './widget-export';
 import {AjfWidgetHost} from './widget-host';
 
 @NgModule({
   declarations: [
     AjfGetColumnContentPipe,
+    AjfReportStringIdentifierPipe,
     AjfWidgetHost,
     AjfWidgetExport,
   ],
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+  ],
   exports: [
     AjfGetColumnContentPipe,
+    AjfReportStringIdentifierPipe,
     AjfWidgetHost,
     AjfWidgetExport,
   ],

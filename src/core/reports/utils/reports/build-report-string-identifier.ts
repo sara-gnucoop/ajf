@@ -20,18 +20,22 @@
  *
  */
 
-import {AjfForm} from '@ajf/core/forms';
-import {AjfStyles} from '../styles';
-import {AjfReportContainer} from './report-container';
-import {AjfReportStringIdentifier} from './report-string-identifier';
-import {AjfReportVariable} from './report-variable';
+import {
+  AjfContext,
+  buildStringIdentifier,
+  BuildStringIdentifierOpts,
+} from '@ajf/core/common';
 
-export interface AjfReport {
-  header?: AjfReportContainer;
-  content?: AjfReportContainer;
-  footer?: AjfReportContainer;
-  styles?: AjfStyles;
-  forms?: AjfForm[];
-  variables?: AjfReportVariable[];
-  stringIdentifier?: AjfReportStringIdentifier[];
-}
+import {AjfReport} from '../../interface/reports/report';
+
+export const buildReportStringIdentifier =
+    (report: AjfReport, context: AjfContext, opts?: BuildStringIdentifierOpts): string => {
+      if (report == null) {
+        return '';
+      }
+      const stringIdentifier = report.stringIdentifier || [];
+      if (stringIdentifier.length === 0) {
+        return '';
+      }
+      return buildStringIdentifier(stringIdentifier, context, opts);
+    };
