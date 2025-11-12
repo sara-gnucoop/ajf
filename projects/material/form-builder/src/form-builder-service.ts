@@ -76,6 +76,11 @@ export interface AjfFormBuilderNodeTypeEntry {
   isSlide?: boolean;
 }
 
+export interface AjfFormBuilderNodeTypeGroup {
+  label: string;
+  types: AjfFormBuilderNodeTypeEntry[];
+}
+
 export interface AjfFormBuilderNodeEntry {
   node: AjfNode;
   container: AjfContainerNode | null;
@@ -248,90 +253,126 @@ let nodeUniqueId = 0;
 
 @Injectable()
 export class AjfFormBuilderService {
-  private _availableNodeTypes: AjfFormBuilderNodeTypeEntry[] = [
+  private _availableNodeTypeGroups: AjfFormBuilderNodeTypeGroup[] = [
     {
-      label: 'Slide',
-      nodeType: {node: AjfNodeType.AjfSlide},
-      isSlide: true,
+      label: 'Layout',
+      types: [
+        {
+          label: 'Slide',
+          nodeType: {node: AjfNodeType.AjfSlide},
+          isSlide: true,
+        },
+        {
+          label: 'Repeating slide',
+          nodeType: {node: AjfNodeType.AjfRepeatingSlide},
+          isSlide: true,
+        },
+      ],
     },
     {
-      label: 'Repeating slide',
-      nodeType: {node: AjfNodeType.AjfRepeatingSlide},
-      isSlide: true,
+      label: 'Basic Inputs',
+      types: [
+        {
+          label: 'String',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.String},
+        },
+        {
+          label: 'Text',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Text},
+        },
+        {
+          label: 'Number',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Number},
+        },
+        {
+          label: 'Boolean',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Boolean},
+        },
+        {
+          label: 'Note',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Empty},
+        },
+      ],
     },
     {
-      label: 'String',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.String},
+      label: 'Choice Inputs',
+      types: [
+        {
+          label: 'Single choice',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.SingleChoice},
+        },
+        {
+          label: 'Multiple choice',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.MultipleChoice},
+        },
+      ],
     },
     {
-      label: 'Text',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Text},
+      label: 'Date & Time',
+      types: [
+        {
+          label: 'Date',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Date},
+        },
+        {
+          label: 'Date input',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.DateInput},
+        },
+        {
+          label: 'Time',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Time},
+        },
+      ],
     },
     {
-      label: 'Number',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Number},
-    },
-    {
-      label: 'Boolean',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Boolean},
-    },
-    {
-      label: 'Single choice',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.SingleChoice},
-    },
-    {
-      label: 'Multiple choice',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.MultipleChoice},
-    },
-    {
-      label: 'Formula',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Formula},
-    },
-    {
-      label: 'Note',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Empty},
-    },
-    {
-      label: 'Date',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Date},
-    },
-    {
-      label: 'Date input',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.DateInput},
-    },
-    {
-      label: 'Time',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Time},
-    },
-    {
-      label: 'Table',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Table},
-    },
-    {
-      label: 'Geolocation',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Geolocation},
-    },
-    {
-      label: 'Barcode',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Barcode},
-    },
-    {
-      label: 'Signature',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Signature},
-    },
-    {
-      label: 'File',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.File},
-    },
-    {
-      label: 'Image',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Image},
-    },
-    {
-      label: 'Range',
-      nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Range},
+      label: 'Advanced Inputs',
+      types: [
+        {
+          label: 'Formula',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Formula},
+        },
+        {
+          label: 'Table',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Table},
+        },
+        {
+          label: 'Geolocation',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Geolocation},
+        },
+        {
+          label: 'Barcode',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Barcode},
+        },
+        {
+          label: 'Signature',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Signature},
+        },
+        {
+          label: 'File',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.File},
+        },
+        {
+          label: 'Image',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Image},
+        },
+        {
+          label: 'Range',
+          nodeType: {node: AjfNodeType.AjfField, field: AjfFieldType.Range},
+        },
+      ],
     },
   ];
+  /**
+   * Available node types groups
+   *
+   * @readonly
+   * @memberOf AjfFormBuilderService
+   */
+  get availableNodeTypeGroups(): AjfFormBuilderNodeTypeGroup[] {
+    return this._availableNodeTypeGroups;
+  }
+
+  private _availableNodeTypes: AjfFormBuilderNodeTypeEntry[] = this._availableNodeTypeGroups.flatMap(g => g.types);
   /**
    * Available node types
    *

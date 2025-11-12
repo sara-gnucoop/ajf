@@ -28,20 +28,34 @@
 <div class="ajf-formtree-container">
   <mat-drawer-container cdkDropListGroup class="ajf-formtree-drawer-container">
     <mat-drawer #leftSidenav position="start" mode="over">
-      <div
-        #sourceDropList
-        cdkDropList
-        [cdkDropListConnectedTo]="(connectedDropLists|async)!"
-        [cdkDropListEnterPredicate]="disableDrop"
-        [cdkDropListData]="nodeTypes"
-      >
-        <ajf-fb-node-type-entry
-          *ngFor="let nodeType of nodeTypes"
-          cdkDrag
-          [cdkDragData]="nodeType"
-          (cdkDragStarted)="leftSidenav.close()"
-          [nodeType]="nodeType"
-        ></ajf-fb-node-type-entry>
+      <mat-form-field style="width: 100%; padding: 0 16px; box-sizing: border-box;">
+        <mat-label>{{'Search'|transloco}}</mat-label>
+        <input matInput [(ngModel)]="nodeTypesFilter">
+      </mat-form-field>
+      <div style="overflow-y: auto; height: calc(100% - 56px);">
+        <mat-accordion multi>
+          <mat-expansion-panel *ngFor="let group of filteredNodeTypeGroups" [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ group.label }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div
+              cdkDropList
+              [cdkDropListConnectedTo]="(connectedDropLists|async)!"
+              [cdkDropListEnterPredicate]="disableDrop"
+              [cdkDropListData]="group.types"
+            >
+              <ajf-fb-node-type-entry
+                *ngFor="let nodeType of group.types"
+                cdkDrag
+                [cdkDragData]="nodeType"
+                (cdkDragStarted)="leftSidenav.close()"
+                [nodeType]="nodeType"
+              ></ajf-fb-node-type-entry>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
     </mat-drawer>
     <div #designer class="ajf-designer">

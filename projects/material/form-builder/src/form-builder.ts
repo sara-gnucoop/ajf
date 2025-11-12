@@ -46,6 +46,7 @@ import {AjfFbConditionEditorDialog} from './condition-editor-dialog';
 import {
   AjfFormBuilderNodeEntry,
   AjfFormBuilderNodeTypeEntry,
+  AjfFormBuilderNodeTypeGroup,
   AjfFormBuilderService,
   AjfFormBuilderValidation,
 } from './form-builder-service';
@@ -85,9 +86,24 @@ export class AjfFormBuilder implements AfterViewChecked, AfterContentInit, OnDes
   readonly formBuilderValidation: Observable<AjfFormBuilderValidation> = this
     ._formBuilderValidation as Observable<AjfFormBuilderValidation>;
 
-  private _nodeTypes: AjfFormBuilderNodeTypeEntry[];
-  get nodeTypes(): AjfFormBuilderNodeTypeEntry[] {
-    return this._nodeTypes;
+  private _nodeTypeGroups: AjfFormBuilderNodeTypeGroup[];
+  get nodeTypeGroups(): AjfFormBuilderNodeTypeGroup[] {
+    return this._nodeTypeGroups;
+  }
+
+  nodeTypesFilter = '';
+  get filteredNodeTypeGroups(): AjfFormBuilderNodeTypeGroup[] {
+    if (!this.nodeTypesFilter) {
+      return this._nodeTypeGroups;
+    }
+    return this._nodeTypeGroups
+      .map(group => {
+        const filteredTypes = group.types.filter(nodeType =>
+          nodeType.label.toLowerCase().includes(this.nodeTypesFilter.toLowerCase()),
+        );
+        return {...group, types: filteredTypes};
+      })
+      .filter(group => group.types.length > 0);
   }
 
   private _nodeEntriesTree: Observable<AjfFormBuilderNodeEntry[]>;
@@ -123,7 +139,7 @@ export class AjfFormBuilder implements AfterViewChecked, AfterContentInit, OnDes
   private _lastScrollTop: number = 0;
 
   constructor(private _service: AjfFormBuilderService, private _dialog: MatDialog) {
-    this._nodeTypes = _service.availableNodeTypes;
+    this._nodeTypeGroups = _service.availableNodeTypeGroups;
     this._nodeEntriesTree = _service.nodeEntriesTree;
     this._choicesOrigins = _service.choicesOrigins;
     this._editConditionSub = this._service.editedCondition.subscribe(
